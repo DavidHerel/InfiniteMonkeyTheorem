@@ -25,7 +25,7 @@ class Population:
         self.finished = False
         self.generations = 0
 
-        self.perfectScore = len(self.target)
+        self.perfectScore = 1
 
     #select best elements in population and put them in mating pool
     def naturalSelection(self):
@@ -35,9 +35,9 @@ class Population:
         #a higher fitness = more intries to mating pool = more likely to be picked as a parent
         #a lower fitness = fewer entries to mating pool = less likely to be picked as a parent
         for i in range(len(self.population)):
-            #Goal/achieved
-            loopCount = (self.population[i].fitness(self.target)+1)/self.perfectScore
-            loopCount = loopCount*10
+            #loopCount is percentage of succes * 100
+            loopCount = self.population[i].fitness(self.target)
+            loopCount = loopCount*100
             for j in range(int(loopCount)):
                 self.matingPool.append(self.population[i])
 

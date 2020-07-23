@@ -27,8 +27,8 @@
 from Population import Population
 
 def setup():
-    target = "Felt delete, might cute later."
-    popMax=200
+    target = "To be or not to be: that is the question."
+    popMax=500
     mutationRate = 0.01
 
     #create a new population with a target phrase, mutation rate and population max
