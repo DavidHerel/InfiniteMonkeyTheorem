@@ -37,10 +37,10 @@ class DNA:
     def mutate(self, mutationRate):
         for index in range(len(self.genes)):
             if (random.uniform(0, 1) < mutationRate):
-                self.genes= self.genes[:index] + random.choice(string.ascii_letters + string.whitespace + string.digits) + self.genes[index + 1:]
+                self.genes= self.genes[:index] + random.choice(string.printable + string.whitespace) + self.genes[index + 1:]
 
 
     #create random string of given length
-    def randStr(self, chars=string.ascii_letters + string.whitespace + string.digits, N=10):
+    def randStr(self, chars=string.printable + string.whitespace, N=10):
         return ''.join(random.choice(chars) for _ in range(N))
 
