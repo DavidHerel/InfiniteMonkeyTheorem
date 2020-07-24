@@ -16,8 +16,6 @@ class DNA:
     def fitness(self, target):
         countDiff = sum(c1 != c2 for c1, c2 in zip(self.genes, target))
         score = (len(self.genes)) - countDiff
-        # make it exponentially better so 801 is far better than 800
-        score = score*score
         # fitness is the percentage correct
         score = score/(len(self.genes))
         return score

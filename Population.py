@@ -1,5 +1,6 @@
 from DNA import DNA
 import random
+
 class Population:
 
     """

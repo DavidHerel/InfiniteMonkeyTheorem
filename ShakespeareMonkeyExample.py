@@ -25,10 +25,11 @@
 
 # # Rinse and repeat
 from Population import Population
+import time
 
 def setup():
-    target = "To be or not to be: that is the question."
-    popMax=500
+    target = "To be or not to be"
+    popMax=1000
     mutationRate = 0.01
 
     #create a new population with a target phrase, mutation rate and population max
@@ -41,24 +42,57 @@ def draw(population):
     #create next generation
     population.generate()
 
+    #get best
+    population.getBest();
+
+    printAllStats(population)
+
     #if we found target phrase, stop
     return not population.finished
 
-def displayInfo(population):
-    #display current status of population
-    answer = population.getBest()
-    #print("All phrases: \n" + population.allPhrases())
 
-    print("Best phrase: " + "{}{}".format("", answer.genes) + "\n")
-    print("Total generations: " + "{}{}".format("", population.generations) + "\n")
-    print("Average fitness: " + "{}{}".format("", population.getAverageFitness()) + "\n")
-    #print("Total population: " + "{}{}".format("", len(population.population))+ "\n")
-    #print("Mutation rate: " + "{}{}".format("", population.mutationRate) + "\n")
+def main(pop):
+    retval = True
+    while (retval):
+        #create new gens until it gets right element
+        retval = draw(pop)
+    printAllStats(pop)
+    return True
 
+def printAllStats(pop):
+    print("Best phrase: " + "{}{}".format("", pop.getBest().genes) + "\n")
+    print("Total generations: " + "{}{}".format("", pop.generations) + "\n")
+    print("Average fitness: " + "{}{}".format("", pop.getAverageFitness()) + "\n")
+    print("-----------------------------------------")
 
-pop = setup()
-while(draw(pop)):
-    displayInfo(pop)
+#get statistics for n population
+def statistics(pop, n):
+    #starting time
+    start_time = time.time()
+    #iterations
+    i = 0
+    #sum of all generations
+    generationsSum = 0
+    #sum of time
+    timeSum = 0
+    #loop n times of main function
+    while(i!=n):
+        #when element was found = raise I
+        if(main(pop)==True):
+            i+=1
+            generationsSum+= pop.generations
+            #create new generation
+            pop = setup()
+    #stats sum
+    timeSum = (time.time() - start_time)
+    generationsSum = generationsSum/n
+    timeSum = timeSum/n
+    
+    print("Average generations: " + "{}{}".format("", generationsSum) + "\n")
+    print("Average time: --- %s seconds ---" % (timeSum))
 
-
+#setup population
+population = setup()
+#statistics of n populations
+statistics(population, 1)
 
