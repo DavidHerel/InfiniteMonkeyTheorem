@@ -1,7 +1,7 @@
 # InfiniteMonkeyTheorem
 My solution of Infinite Monkey Theorem using Genetic programming
 
-![alt text](https://github.com/DavidHerel/InfiniteMonkeyTheorem/stats/master/Statistics.PNG?raw=true)
+![alt text](https://github.com/DavidHerel/InfiniteMonkeyTheorem/stats/master/Statistics.PNG)
 
 The “infinite monkey theorem” is stated as follows: A monkey hitting keys randomly on a typewriter will eventually type the complete works of Shakespeare (given an infinite amount of time). The problem with this theory is that the probability of said monkey actually typing Shakespeare is so low that even if that monkey started at the Big Bang, it’s unbelievably unlikely we’d even have Hamlet at this point.
 
