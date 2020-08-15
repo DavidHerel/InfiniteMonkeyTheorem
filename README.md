@@ -1,7 +1,7 @@
 # InfiniteMonkeyTheorem
 My solution of Infinite Monkey Theorem using Genetic programming
 
-Run ShakeShpeareMonkeyExample.py
+Run ShakespeareMonkeyExample.py
 
 ![Statistika](https://github.com/DavidHerel/InfiniteMonkeyTheorem/blob/master/stats/Statistics.PNG)
 
